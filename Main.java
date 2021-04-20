@@ -19,6 +19,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.net.URL;
 import java.security.*;
 import java.sql.*;
 import java.util.Collections;
@@ -59,7 +60,7 @@ public class Main {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         DocumentBuilder builder = dbf.newDocumentBuilder();
-        Document doc = builder.parse(new FileInputStream("rechercherTest.xml"));
+        Document doc = builder.parse(new FileInputStream("src/ressources/rechercherTest.xml"));
 
         //Creating a Signing Context
         DOMSignContext dsc = new DOMSignContext(kp.getPrivate(), doc.getDocumentElement());
@@ -90,17 +91,16 @@ public class Main {
         signature.sign(dsc);
 
         // Printing or Displaying the Resulting Document
-        OutputStream os;
-        if (args.length > 1) {
-            os = new FileOutputStream("rechercherTest.xml");
-        } else {
-            os = System.out;
-        }
+
+        OutputStream os = new FileOutputStream("src/ressources/rechercherTest.xml");
+
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer trans = tf.newTransformer();
         trans.transform(new DOMSource(doc), new StreamResult(os));
 
-        Rechercher rechercher = new Rechercher("rechercherTest.xml") ;
+        Rechercher rechercher = new Rechercher("src/ressources/rechercherTest.xml") ;
+
+
         Class.forName("com.mysql.jdbc.Driver");
 
         String DBurl = "jdbc:mysql://localhost:3306/restaurant";
@@ -110,9 +110,9 @@ public class Main {
         Connection connection = DriverManager.getConnection(DBurl, username, password) ;
 
 
-        String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('110', '121', '212');" ;
+       /* String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('110', '121', '212');" ;
         Statement statement = connection.createStatement();
 
-        int rows = statement.executeUpdate(sql) ;
+        int rows = statement.executeUpdate(sql) ;*/
     }
 }
