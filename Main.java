@@ -27,7 +27,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, NoSuchAlgorithmException, ParserConfigurationException, IOException, SAXException, InvalidAlgorithmParameterException, KeyException, MarshalException, XMLSignatureException, TransformerException {
+    public static void main(String[] args) throws Exception {
 	// write your code here
         System.out.println("Hello world");
 
@@ -92,14 +92,14 @@ public class Main {
 
         // Printing or Displaying the Resulting Document
 
-        OutputStream os = new FileOutputStream("src/ressources/rechercherTest.xml");
+        OutputStream os = new FileOutputStream("src/ressources/rechercherTestSigne.xml");
 
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer trans = tf.newTransformer();
         trans.transform(new DOMSource(doc), new StreamResult(os));
 
         Rechercher rechercher = new Rechercher("src/ressources/rechercherTest.xml") ;
-
+        rechercher.research("src/ressources/rechercherTestSigne.xml");
 
         Class.forName("com.mysql.jdbc.Driver");
 
