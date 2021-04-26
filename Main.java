@@ -96,8 +96,7 @@ public class Main {
         Transformer trans = tf.newTransformer();
         trans.transform(new DOMSource(doc), new StreamResult(os));
 
-        Rechercher rechercher = new Rechercher("src/ressources/rechercherTest.xml") ;
-        rechercher.research("src/ressources/rechercherTestSigne.xml");
+
 
         // chargement de la classe du driver en memoire
         Class.forName("com.mysql.jdbc.Driver");
@@ -112,10 +111,11 @@ public class Main {
         // connection a la base
         Connection connection = DriverManager.getConnection(DBurl, username, password) ;
 
-
-        String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('110', '121', '212');" ;
+        Rechercher rechercher = new Rechercher("src/ressources/rechercherTest.xml", connection) ;
+        rechercher.research("src/ressources/rechercherTestSigne.xml");
+        String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('1', '2', '3');" ;
         // creation d'un statement
-        Statement statement = connection.createStatement();
+        //Statement statement = connection.createStatement();
 
         // retourne le nombre de n-uplets traités (pour insert, update, delete, create table, drop table)
         //int rows = statement.executeUpdate(sql) ;
@@ -124,7 +124,7 @@ public class Main {
 
         String delete = "DELETE FROM `contient` WHERE `contient`.`numcom` = 1 AND `contient`.`numplat` = 1;";
 
-        statement.close() ;
-        connection.close();
+        //statement.close() ;
+        //connection.close();
     }
 }
