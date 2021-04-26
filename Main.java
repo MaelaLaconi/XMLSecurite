@@ -118,7 +118,7 @@ public class Main {
         Statement statement = connection.createStatement();
 
         // retourne le nombre de n-uplets traités (pour insert, update, delete, create table, drop table)
-        int rows = statement.executeUpdate(sql) ;
+        //int rows = statement.executeUpdate(sql) ;
         // pour select utiliser executeQuery
 
 
