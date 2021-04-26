@@ -117,8 +117,11 @@ public class Main {
         Inserer inserer = new Inserer("src/ressources/insererTest.xml", connection);
         inserer.insert("src/ressources/insererTest.xml");*/
 
-        Effacer effacer = new Effacer("src/ressources/effacerTest.xml", connection);
-        effacer.delete("src/ressources/effacerTest.xml");
+        /*Effacer effacer = new Effacer("src/ressources/effacerTest.xml", connection);
+        effacer.delete("src/ressources/effacerTest.xml");*/
+
+        Maj maj = new Maj("src/ressources/majTest.xml", connection);
+        maj.update("src/ressources/majTest.xml");
         //String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('1', '2', '3');" ;
         String sql = "INSERT INTO contient VALUES('111', '222', '113');" ;
         // creation d'un statement
