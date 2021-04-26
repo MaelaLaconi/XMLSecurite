@@ -133,9 +133,37 @@ public class Rechercher {
                 }
 
                 System.out.println("Et la condition : "+cond);
+                StringBuilder sql = new StringBuilder();
+                sql.append("SELECT ");
+                String prefix = "";
+
+                // on parcours les balises champ
+                for(String c : listChamp){
+                    sql.append(prefix);
+                    prefix = ", ";
+                    sql.append(c);
+                }
+
+                sql.append(" FROM ");
+                prefix = "";
+
+                // on parcours les balises table
+                for(String t : listTable){
+                    sql.append(prefix);
+                    prefix = ", ";
+                    sql.append(t);
+                }
+
+                sql.append(" WHERE ");
+
+                if(!cond.equals("")){
+                    sql.append(cond+" ;") ;
+                }
+                System.out.println("String sql a la fin = "+ sql.toString());
+
             }
             else{
-                throw new Exception("LE DOCUMENT XML NE POSSEDE PAS DE BALSE <SELECT>");
+                throw new Exception("Le document xml ne possède pas de balise <SELECT> pour la recherche");
             }
 
 
