@@ -28,8 +28,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-	// write your code here
-        System.out.println("Hello world");
 
         String selection = "R";
         Scanner input = new Scanner(System.in);
@@ -101,18 +99,32 @@ public class Main {
         Rechercher rechercher = new Rechercher("src/ressources/rechercherTest.xml") ;
         rechercher.research("src/ressources/rechercherTestSigne.xml");
 
+        // chargement de la classe du driver en memoire
         Class.forName("com.mysql.jdbc.Driver");
 
+        // URL de la base de données
         String DBurl = "jdbc:mysql://localhost:3306/restaurant";
+        // nom de l'utilisateur de la base
         String username = "root" ;
+        // son mot de passe
         String password = "" ;
 
+        // connection a la base
         Connection connection = DriverManager.getConnection(DBurl, username, password) ;
 
 
-       /* String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('110', '121', '212');" ;
+        String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('110', '121', '212');" ;
+        // creation d'un statement
         Statement statement = connection.createStatement();
 
-        int rows = statement.executeUpdate(sql) ;*/
+        // retourne le nombre de n-uplets traités (pour insert, update, delete, create table, drop table)
+        int rows = statement.executeUpdate(sql) ;
+        // pour select utiliser executeQuery
+
+
+        String delete = "DELETE FROM `contient` WHERE `contient`.`numcom` = 1 AND `contient`.`numplat` = 1;";
+
+        statement.close() ;
+        connection.close();
     }
 }

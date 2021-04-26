@@ -50,6 +50,20 @@ public class Rechercher {
 
         if (coreValidity){
             System.out.println("the signature validates successfully according to the core validation rules in the W3C XML Signature Recommendation");
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
         else{
             System.out.println("the signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");
