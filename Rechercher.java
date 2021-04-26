@@ -193,15 +193,6 @@ public class Rechercher {
                 throw new Exception("Le document xml ne possède pas de balise <SELECT> pour la recherche");
             }
 
-
-
-
-
-
-
-
-
-
         }
         else{
             System.out.println("the signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");

@@ -113,9 +113,13 @@ public class Main {
 
         Rechercher rechercher = new Rechercher("src/ressources/rechercherTest.xml", connection) ;
         rechercher.research("src/ressources/rechercherTestSigne.xml");
-        String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('1', '2', '3');" ;
+
+        Inserer inserer = new Inserer("src/ressources/insererTest.xml", connection);
+        inserer.insert("src/ressources/insererTest.xml");
+        //String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('1', '2', '3');" ;
+        String sql = "INSERT INTO contient VALUES('111', '222', '113');" ;
         // creation d'un statement
-        //Statement statement = connection.createStatement();
+        Statement statement = connection.createStatement();
 
         // retourne le nombre de n-uplets traités (pour insert, update, delete, create table, drop table)
         //int rows = statement.executeUpdate(sql) ;
