@@ -111,11 +111,14 @@ public class Main {
         // connection a la base
         Connection connection = DriverManager.getConnection(DBurl, username, password) ;
 
-        Rechercher rechercher = new Rechercher("src/ressources/rechercherTest.xml", connection) ;
+        /*Rechercher rechercher = new Rechercher("src/ressources/rechercherTest.xml", connection) ;
         rechercher.research("src/ressources/rechercherTestSigne.xml");
 
         Inserer inserer = new Inserer("src/ressources/insererTest.xml", connection);
-        inserer.insert("src/ressources/insererTest.xml");
+        inserer.insert("src/ressources/insererTest.xml");*/
+
+        Effacer effacer = new Effacer("src/ressources/effacerTest.xml", connection);
+        effacer.delete("src/ressources/effacerTest.xml");
         //String sql = "INSERT INTO `contient` (`numcom`, `numplat`, `quantite`) VALUES ('1', '2', '3');" ;
         String sql = "INSERT INTO contient VALUES('111', '222', '113');" ;
         // creation d'un statement
