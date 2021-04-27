@@ -1,13 +1,9 @@
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import javax.xml.crypto.dsig.XMLSignature;
-import javax.xml.crypto.dsig.XMLSignatureFactory;
-import javax.xml.crypto.dsig.dom.DOMValidateContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,12 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rechercher {
-    private String xmlFile ;
     private Connection connection ;
 
-    public Rechercher(String xmlFile, Connection con) {
+    public Rechercher(Connection con) {
         this.connection = con ;
-        this.xmlFile = xmlFile;
     }
 
     public void research(String fileName) throws Exception {
@@ -38,39 +32,11 @@ public class Rechercher {
 
         NodeList sousNoeud ;
 
-        // vérifiaction de la signature
-
-        // Instantiating the Document that Contains the Signature
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-
-        dbf.setNamespaceAware(true);
-
-        DocumentBuilder builder = dbf.newDocumentBuilder();
-        Document doc = builder.parse(new FileInputStream(fileName));
-
-        // Specifying the Signature Element to be Validated
-        NodeList nl = doc.getElementsByTagNameNS
-                (XMLSignature.XMLNS, "Signature");
-        if (nl.getLength() == 0) {
-            throw new Exception("Cannot find Signature element");
-        }
-
-        // créer la classe keyValueSelector
-        // Creating a Validation Context
-        DOMValidateContext valContext = new DOMValidateContext(new KeyValueKeySelector(), nl.item(0));
-
-        // Unmarshaling the XML Signature
-
-        XMLSignatureFactory factory = XMLSignatureFactory.getInstance("DOM");
-
-        XMLSignature signature = factory.unmarshalXMLSignature(valContext);
-
-        // Validating the XML Signature
-
-        boolean coreValidity = signature.validate(valContext);
+        Signature signature = new Signature();
+        boolean coreValidity = signature.validateSignature(fileName);
 
         if (coreValidity){
-            System.out.println("the signature validates successfully according to the core validation rules in the W3C XML Signature Recommendation");
+            System.out.println("The signature validates successfully according to the core validation rules in the W3C XML Signature Recommendation");
 
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -156,7 +122,6 @@ public class Rechercher {
                 if (!cond.equals("")) {
                     sql.append(cond + " ;");
                 }
-                System.out.println("String sql a la fin = " + sql.toString());
 
                 // on execute la requete
                 Statement statement = connection.createStatement();
@@ -183,11 +148,16 @@ public class Rechercher {
                 }
                 sb.append("    </TUPLES>\n</RESULTAT>");
 
-                File file = new File("src/ressources/rechercherRes.xml");
+                // contient le resultat non signé
+                File file = new File("src/ressources/Recherche.xml");
                 FileWriter fileWriter = new FileWriter(file);
                 fileWriter.write(sb.toString());
                 fileWriter.close();
-                // TODO : signer le xml
+
+                // le xml signé sera dans src/ressources/SignedRecherche.xml
+                signature.createSignature("Recherche.xml");
+
+                System.out.println("Le resultat de la recherche se trouve dans src/ressources/SignedRecherche.xml\n\n");
             }
             else{
                 throw new Exception("Le document xml ne possède pas de balise <SELECT> pour la recherche");
@@ -195,7 +165,7 @@ public class Rechercher {
 
         }
         else{
-            System.out.println("the signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");
+            System.out.println("The signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");
         }
 
 

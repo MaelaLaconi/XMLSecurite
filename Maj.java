@@ -1,7 +1,6 @@
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
@@ -10,65 +9,69 @@ import java.sql.Statement;
 
 public class Maj {
     private Connection connection;
-    private String xmlFile ;
 
-    public Maj(String xmlFile, Connection connection) {
-        this.xmlFile = xmlFile;
+    public Maj(Connection connection) {
         this.connection = connection ;
     }
 
     public void update(String fileName) throws Exception {
 
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Signature signature = new Signature();
+        boolean coreValidity = signature.validateSignature(fileName);
 
-        Document doc1 = dBuilder.parse(new File(fileName));
-        //doc1.getDocumentElement().normalize();
+        if (coreValidity) {
+            System.out.println("The signature validates successfully according to the core validation rules in the W3C XML Signature Recommendation");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
-        // doit contenir la balise select elemt node
-        Node select = doc1.getDocumentElement();
+            Document doc1 = dBuilder.parse(new File(fileName));
+            //doc1.getDocumentElement().normalize();
 
-        // si la balise racine est bien une balise insert alors on peut effectuer l'insertion
-        if(select.getNodeName().equals("UPDATE")) {
-            // on recupere les noeuds en dessous de la balise insert
-            NodeList nList = select.getChildNodes();
-            int i;
+            // doit contenir la balise select elemt node
+            Node select = doc1.getDocumentElement();
 
-            StringBuilder sql = new StringBuilder();
+            // si la balise racine est bien une balise insert alors on peut effectuer l'insertion
+            if (select.getNodeName().equals("UPDATE")) {
+                // on recupere les noeuds en dessous de la balise insert
+                NodeList nList = select.getChildNodes();
+                int i;
 
-            // parcours de tout les fils de la racine
-            for (i = 0; i < nList.getLength(); i++) {
-                Node nNode = nList.item(i);
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    String baliseName = nNode.getNodeName();
-                    switch (baliseName) {
-                        case "TABLE":
-                            sql.append("UPDATE "+ nNode.getTextContent()+" SET ");
-                            break;
+                StringBuilder sql = new StringBuilder();
 
-                        case "CHAMP":
-                            sql.append(nNode.getTextContent()+" = ");
-                            break;
+                // parcours de tout les fils de la racine
+                for (i = 0; i < nList.getLength(); i++) {
+                    Node nNode = nList.item(i);
+                    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                        String baliseName = nNode.getNodeName();
+                        switch (baliseName) {
+                            case "TABLE":
+                                sql.append("UPDATE " + nNode.getTextContent() + " SET ");
+                                break;
 
-                        case "VALUE":
-                            sql.append(nNode.getTextContent());
-                            break;
-                        case "CONDITION":
-                            sql.append(" WHERE "+nNode.getTextContent()+";");
-                            System.out.println(sql.toString());
-                            // on execute la requete
-                            Statement statement = connection.createStatement();
-                            int rows = statement.executeUpdate(sql.toString());
+                            case "CHAMP":
+                                sql.append(nNode.getTextContent() + " = ");
+                                break;
 
-                            break;
-                        default:
+                            case "VALUE":
+                                sql.append(nNode.getTextContent());
+                                break;
+                            case "CONDITION":
+                                sql.append(" WHERE " + nNode.getTextContent() + ";");
+                                // on execute la requete
+                                Statement statement = connection.createStatement();
+                                int rows = statement.executeUpdate(sql.toString());
+
+                                break;
+                            default:
+                        }
+
                     }
-
                 }
+            } else {
+                throw new Exception("Le document xml ne possède pas de balise <UPDATE> pour la maj");
             }
-        }
-        else{
-            throw new Exception("Le document xml ne possède pas de balise <UPDATE> pour la maj");
+        }else{
+            System.out.println("The signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");
         }
     }
 }

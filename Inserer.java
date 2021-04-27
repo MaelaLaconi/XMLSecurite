@@ -6,54 +6,21 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Inserer {
-    private String xmlFile ;
     private Connection connection ;
-    public Inserer(String xmlFile, Connection connection) {
-        this.xmlFile = xmlFile;
+    public Inserer(Connection connection) {
         this.connection = connection;
     }
 
     public void insert(String fileName) throws Exception {
         NodeList sousNoeud ;
 
-        // vérifiaction de la signature
+        Signature signature = new Signature();
+        boolean coreValidity = signature.validateSignature(fileName);
 
-        // Instantiating the Document that Contains the Signature
-        /*DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-
-        dbf.setNamespaceAware(true);
-
-        DocumentBuilder builder = dbf.newDocumentBuilder();
-        Document doc = builder.parse(new FileInputStream(fileName));
-
-        // Specifying the Signature Element to be Validated
-        NodeList nl = doc.getElementsByTagNameNS
-                (XMLSignature.XMLNS, "Signature");
-        if (nl.getLength() == 0) {
-            throw new Exception("Cannot find Signature element");
-        }
-
-        // créer la classe keyValueSelector
-        // Creating a Validation Context
-        DOMValidateContext valContext = new DOMValidateContext(new KeyValueKeySelector(), nl.item(0));
-
-        // Unmarshaling the XML Signature
-
-        XMLSignatureFactory factory = XMLSignatureFactory.getInstance("DOM");
-
-        XMLSignature signature = factory.unmarshalXMLSignature(valContext);
-
-        // Validating the XML Signature
-
-        boolean coreValidity = signature.validate(valContext);*/
-
-       // if (coreValidity){
-            System.out.println("the signature validates successfully according to the core validation rules in the W3C XML Signature Recommendation");
-
+        if (coreValidity) {
+            System.out.println("The signature validates successfully according to the core validation rules in the W3C XML Signature Recommendation");
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -120,11 +87,11 @@ public class Inserer {
             }
 
         }
-       // else{
-          //  System.out.println("the signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");
-        //}
+        else{
+            System.out.println("The signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");
+        }
 
 
     }
 
-//}
+}
