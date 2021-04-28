@@ -16,6 +16,7 @@ public class Effacer {
     public void delete(String fileName) throws Exception {
 
         Signature signature = new Signature();
+        // true si la signature est valide
         boolean coreValidity = signature.validateSignature(fileName);
 
         if (coreValidity) {
@@ -24,17 +25,18 @@ public class Effacer {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
             Document doc1 = dBuilder.parse(new File(fileName));
-            //doc1.getDocumentElement().normalize();
 
-            // doit contenir la balise select elemt node
+            // doit contenir la balise delete elemt node
             Node select = doc1.getDocumentElement();
 
-            // si la balise racine est bien une balise insert alors on peut effectuer l'insertion
+            // si la balise racine est bien une balise delete alors on peut effectuer la suppression
             if (select.getNodeName().equals("DELETE")) {
-                // on recupere les noeuds en dessous de la balise insert
+
+                // on recupere les noeuds en dessous de la balise delete
                 NodeList nList = select.getChildNodes();
                 int i;
 
+                // contiendra la requete sql
                 StringBuilder sql = new StringBuilder();
 
                 // parcours de tout les fils de la racine
@@ -42,17 +44,20 @@ public class Effacer {
                     Node nNode = nList.item(i);
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                         String baliseName = nNode.getNodeName();
+
                         switch (baliseName) {
+                            // si la base est <TABLE>
                             case "TABLE":
+                                // on récupere le nom de la table sur laquelle faire la requete
                                 sql.append("DELETE FROM " + nNode.getTextContent() + " WHERE ");
                                 break;
-
+                            // si la balise est <CONDITION>
                             case "CONDITION":
+                                // on recupere la condition a appliquer
                                 sql.append(nNode.getTextContent() + ";");
                                 // on execute la requete
                                 Statement statement = connection.createStatement();
                                 int rows = statement.executeUpdate(sql.toString());
-
                                 break;
                             default:
                         }

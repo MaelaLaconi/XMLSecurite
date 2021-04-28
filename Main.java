@@ -6,16 +6,12 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-
-
-
-
-
         // chargement de la classe du driver en memoire
         Class.forName("com.mysql.jdbc.Driver");
 
         // URL de la base de données
         String DBurl = "jdbc:mysql://localhost:3306/restaurant";
+
         // nom de l'utilisateur de la base
         String username = "root" ;
         // son mot de passe
@@ -25,13 +21,12 @@ public class Main {
         Connection connection = DriverManager.getConnection(DBurl, username, password) ;
 
 
-
         String selection = "R";
         Scanner input = new Scanner(System.in);
 
         String fileName = "";
 
-        /***************************************************/
+        // tant que l'utilisateur ne clqieu pas sur Q (quitter)
         while(!selection.equals("Q")){
             System.out.println("Veuillez faire votre choix");
             System.out.println("-------------------------\n");
@@ -76,10 +71,7 @@ public class Main {
         }
 
         Signature signature = new Signature();
-        //signature.createSignature("RechercherCommande.xml");
-
-
-
+        signature.createSignature("MajPlat.xml");
 
         connection.close();
     }

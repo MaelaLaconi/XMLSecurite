@@ -20,19 +20,21 @@ public class Rechercher {
     }
 
     public void research(String fileName) throws Exception {
+
         // liste qui contiendra la valeur de toutes les balises champ
         List<String> listChamp = new ArrayList<>();
 
         // liste qui contiendra la valeur de toutes les balises table
         List<String> listTable = new ArrayList<>();
 
-        // contient notre condition (pas besoin de list car une seule balise condition par xml
+        // contient notre condition (pas besoin de list car une seule balise condition par xml)
         String cond ="";
 
 
         NodeList sousNoeud ;
 
         Signature signature = new Signature();
+        // true si la signature est validé
         boolean coreValidity = signature.validateSignature(fileName);
 
         if (coreValidity){
@@ -43,9 +45,8 @@ public class Rechercher {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
             Document doc1 = dBuilder.parse(new File(fileName));
-            //doc1.getDocumentElement().normalize();
 
-            // doit contenir la balise select elemt node ou element ?
+            // doit contenir la balise select
             Node select = doc1.getDocumentElement();
 
             // si la balise racine est bien une balise select alors on peut effectuer la recherche
@@ -60,6 +61,7 @@ public class Rechercher {
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                         String baliseName = nNode.getNodeName();
                         switch (baliseName) {
+                            // si on a une balise <CHAMPS>
                             case "CHAMPS":
                                 // on recupere les fils de la balise <CHAMPS>
                                 sousNoeud = nNode.getChildNodes();
@@ -74,6 +76,7 @@ public class Rechercher {
                                 }
                                 break;
 
+                            // si on a une balise <TABLES>
                             case "TABLES":
                                 sousNoeud = nNode.getChildNodes();
 
@@ -81,13 +84,15 @@ public class Rechercher {
                                     // recuperation de la balise <TABLE>
                                     Node nNode2 = sousNoeud.item(j);
                                     if (nNode2.getNodeType() == Node.ELEMENT_NODE) {
-                                        // on ajoute ce que contient la balise champ dans notre liste
+                                        // on ajoute ce que contient la balise tables dans notre liste
                                         listTable.add(nNode2.getTextContent());
                                     }
                                 }
                                 break;
 
+                            // si on a une balise <CONDITION>
                             case "CONDITION":
+                                // on recupere le String de la condition
                                 cond = nNode.getTextContent();
                                 break;
                             default:
@@ -96,11 +101,12 @@ public class Rechercher {
                     }
                 }
 
+                // contient notre requete
                 StringBuilder sql = new StringBuilder();
                 sql.append("SELECT ");
                 String prefix = "";
 
-                // on parcours les balises champ
+                // on parcours les balises champ qu'on ajoute dans notre requete
                 for (String c : listChamp) {
                     sql.append(prefix);
                     prefix = ", ";
@@ -110,7 +116,7 @@ public class Rechercher {
                 sql.append(" FROM ");
                 prefix = "";
 
-                // on parcours les balises table
+                // on parcours les balises table que l'on ajoute dans notre requete
                 for (String t : listTable) {
                     sql.append(prefix);
                     prefix = ", ";
@@ -118,7 +124,7 @@ public class Rechercher {
                 }
 
                 sql.append(" WHERE ");
-
+                //on ajoute la condition si elle n'est pas null
                 if (!cond.equals("")) {
                     sql.append(cond + " ;");
                 }
@@ -127,11 +133,11 @@ public class Rechercher {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql.toString());
 
-                // on crée le xml associé au select de fait
 
                 // on utilise ResultSetMetaData pour recup le type de données que l'on vient de récupérer
                 ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 
+                // contient le xml qui va etre généré
                 StringBuilder sb = new StringBuilder();
                 sb.append("<RESULTAT>\n    <TUPLES>\n");
                 int nbColonnes = resultSetMetaData.getColumnCount();
@@ -140,7 +146,9 @@ public class Rechercher {
                 while (resultSet.next()) {
                     sb.append("        <TUPLE>\n");
                     for (i = 1; i <= nbColonnes; i++) {
+                        // value de la balise
                         String col = resultSet.getString(i);
+                        // nom de la balisse
                         String nomColonne = resultSetMetaData.getColumnName(i);
                         sb.append("            <"+ nomColonne+">"+col+"</"+nomColonne+">\n");
                     }
@@ -148,7 +156,7 @@ public class Rechercher {
                 }
                 sb.append("    </TUPLES>\n</RESULTAT>");
 
-                // contient le resultat non signé
+                // contient le resultat
                 File file = new File("src/ressources/RechercheRes.xml");
                 FileWriter fileWriter = new FileWriter(file);
                 fileWriter.write(sb.toString());

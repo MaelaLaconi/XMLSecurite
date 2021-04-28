@@ -17,6 +17,7 @@ public class Maj {
     public void update(String fileName) throws Exception {
 
         Signature signature = new Signature();
+        // true si la signature est valide
         boolean coreValidity = signature.validateSignature(fileName);
 
         if (coreValidity) {
@@ -25,14 +26,13 @@ public class Maj {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
             Document doc1 = dBuilder.parse(new File(fileName));
-            //doc1.getDocumentElement().normalize();
 
-            // doit contenir la balise select elemt node
+            // doit contenir la balise update elemt node
             Node select = doc1.getDocumentElement();
 
-            // si la balise racine est bien une balise insert alors on peut effectuer l'insertion
+            // si la balise racine est bien une balise update alors on peut effectuer la mise à jour
             if (select.getNodeName().equals("UPDATE")) {
-                // on recupere les noeuds en dessous de la balise insert
+                // on recupere les noeuds en dessous de la balise update
                 NodeList nList = select.getChildNodes();
                 int i;
 
@@ -44,23 +44,31 @@ public class Maj {
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                         String baliseName = nNode.getNodeName();
                         switch (baliseName) {
+                            // si on a une balise <TABLE>
                             case "TABLE":
+                                // on recupere la table sur laquelle effectuer la requete
                                 sql.append("UPDATE " + nNode.getTextContent() + " SET ");
                                 break;
 
+                            // si on a une balise <CHAMP>
                             case "CHAMP":
+                                // on recupere le champs que l'on veut mettre à jour
                                 sql.append(nNode.getTextContent() + " = ");
                                 break;
 
+                            // si on a une balise <VALUE>
                             case "VALUE":
+                                // on recupere la nouvelle valeur pour mettre a jour
                                 sql.append("'"+nNode.getTextContent()+"'");
                                 break;
+
+                            // si on a une balise <CONDITION>
                             case "CONDITION":
+                                // on recupere la condition a appliquer pour la requete
                                 sql.append(" WHERE " + nNode.getTextContent() + ";");
                                 // on execute la requete
                                 Statement statement = connection.createStatement();
                                 int rows = statement.executeUpdate(sql.toString());
-
                                 break;
                             default:
                         }

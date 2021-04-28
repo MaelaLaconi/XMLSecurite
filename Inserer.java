@@ -17,6 +17,7 @@ public class Inserer {
         NodeList sousNoeud ;
 
         Signature signature = new Signature();
+        // true si la signature est valide
         boolean coreValidity = signature.validateSignature(fileName);
 
         if (coreValidity) {
@@ -26,9 +27,8 @@ public class Inserer {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
             Document doc1 = dBuilder.parse(new File(fileName));
-            //doc1.getDocumentElement().normalize();
 
-            // doit contenir la balise select elemt node
+            // doit contenir la balise insert elemt node
             Node select = doc1.getDocumentElement();
 
             // si la balise racine est bien une balise insert alors on peut effectuer l'insertion
@@ -36,6 +36,7 @@ public class Inserer {
                 // on recupere les noeuds en dessous de la balise insert
                 NodeList nList = select.getChildNodes();
                 int i, j;
+
                 // contient le insert into nomTable values(
                 StringBuilder part1 = new StringBuilder();
 
@@ -49,31 +50,36 @@ public class Inserer {
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                         String baliseName = nNode.getNodeName();
                         switch (baliseName) {
+                            // si on a une balise <TABLE>
                             case "TABLE":
+                                // on recupere le nom de la table
                                 part1.append("INSERT INTO "+ nNode.getTextContent()+" VALUES(");
                                 break;
-
+                            // si on a une balise <VALUES>
                             case "VALUES":
-                                // on recupere les fils de la balise <CHAMPS>
+                                // on recupere les fils de la balise <VALUES>
                                 sousNoeud = nNode.getChildNodes();
                                 String virgule = "";
                                 part2 = new StringBuilder();
                                 for (j = 0; j < sousNoeud.getLength(); j++) {
-                                    // recuperation de la balise <CHAMP>
+                                    // recuperation de la balise <VALUE>
                                     Node nNode2 = sousNoeud.item(j);
                                     if (nNode2.getNodeType() == Node.ELEMENT_NODE) {
-                                        // on ajoute ce que contient la balise value dans notre liste
+                                        // on ajoute la valeur a notre requete (le tout espacé par une virgule)
                                         part2.append(virgule);
                                         virgule = ", ";
                                         part2.append("'"+nNode2.getTextContent()+"'");
                                     }
                                 }
+                                // on ferme la parenthese de VALUES()
                                 part2.append(");");
+                                // on concatene les deux sous-chaine de charactere
                                 sql.append(part1.toString() + part2.toString());
 
                                 // on execute la requete
                                 Statement statement = connection.createStatement();
                                 int rows = statement.executeUpdate(sql.toString());
+                                // on remets a 0 le string builder pour les cas ou il y a plusieurs insert dans ls xml
                                 sql = new StringBuilder();
                                 break;
                             default:
