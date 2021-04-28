@@ -72,7 +72,7 @@ public class Signature {
 
         // Printing or Displaying the Resulting Document
 
-        OutputStream os = new FileOutputStream("src/ressources/Signed"+fileName);
+        OutputStream os = new FileOutputStream("src/ressources/"+fileName);
 
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer trans = tf.newTransformer();

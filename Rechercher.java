@@ -149,15 +149,15 @@ public class Rechercher {
                 sb.append("    </TUPLES>\n</RESULTAT>");
 
                 // contient le resultat non signé
-                File file = new File("src/ressources/Recherche.xml");
+                File file = new File("src/ressources/RechercheRes.xml");
                 FileWriter fileWriter = new FileWriter(file);
                 fileWriter.write(sb.toString());
                 fileWriter.close();
 
                 // le xml signé sera dans src/ressources/SignedRecherche.xml
-                signature.createSignature("Recherche.xml");
+                signature.createSignature("RechercheRes.xml");
 
-                System.out.println("Le resultat de la recherche se trouve dans src/ressources/SignedRecherche.xml\n\n");
+                System.out.println("Le resultat de la recherche se trouve dans src/ressources/RechercheRes.xml\n\n");
             }
             else{
                 throw new Exception("Le document xml ne possède pas de balise <SELECT> pour la recherche");

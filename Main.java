@@ -44,7 +44,7 @@ public class Main {
             selection = input.next();
             if(selection.equals("R")){
                 Scanner input2 = new Scanner(System.in);
-                System.out.println("Veuillez indiquer le fichier xml à charger pour la recherche :");
+                System.out.println("Veuillez indiquer le fichier xml à charger pour la recherche (mettre dans le fichier ressources) :");
                 fileName = input2.next();
                 Rechercher rechercher = new Rechercher(connection) ;
                 rechercher.research("src/ressources/"+fileName);
@@ -52,7 +52,7 @@ public class Main {
 
             if(selection.equals("I")){
                 Scanner input2 = new Scanner(System.in);
-                System.out.println("Veuillez indiquer le fichier xml à charger pour l'insertion :");
+                System.out.println("Veuillez indiquer le fichier xml à charger pour l'insertion (mettre dans le fichier ressources) :");
                 fileName = input2.next();
                 Inserer inserer = new Inserer(connection);
                 inserer.insert("src/ressources/"+fileName);
@@ -60,7 +60,7 @@ public class Main {
 
             if(selection.equals("M")){
                 Scanner input2 = new Scanner(System.in);
-                System.out.println("Veuillez indiquer le fichier xml à charger pour la mise à jour :");
+                System.out.println("Veuillez indiquer le fichier xml à charger pour la mise à jour (mettre dans le fichier ressources) :");
                 fileName = input2.next();
                 Maj maj = new Maj(connection);
                 maj.update("src/ressources/"+fileName);
@@ -68,7 +68,7 @@ public class Main {
 
             if(selection.equals("E")){
                 Scanner input2 = new Scanner(System.in);
-                System.out.println("Veuillez indiquer le fichier xml à charger pour effacer :");
+                System.out.println("Veuillez indiquer le fichier xml à charger pour effacer (mettre dans le fichier ressources) :");
                 fileName = input2.next();
                 Effacer effacer = new Effacer(connection);
                 effacer.delete("src/ressources/"+fileName);
@@ -76,25 +76,8 @@ public class Main {
         }
 
         Signature signature = new Signature();
-        //signature.createSignature("rechercherTest.xml");
+        //signature.createSignature("RechercherCommande.xml");
 
-        Rechercher rechercher = new Rechercher(connection) ;
-        //rechercher.research("src/ressources/SignedrechercherTest.xml");
-
-        /*Inserer inserer = new Inserer(connection);
-        inserer.insert("src/ressources/SignedinsererTest.xml");*/
-
-        /*Effacer effacer = new Effacer(connection);
-        effacer.delete("src/ressources/SignedeffacerTest.xml");*/
-
-        /*Maj maj = new Maj(connection);
-        maj.update("src/ressources/SignedmajTest.xml");*/
-
-        // creation d'un statement
-
-        // retourne le nombre de n-uplets traités (pour insert, update, delete, create table, drop table)
-        //int rows = statement.executeUpdate(sql) ;
-        // pour select utiliser executeQuery
 
 
 

@@ -53,7 +53,7 @@ public class Maj {
                                 break;
 
                             case "VALUE":
-                                sql.append(nNode.getTextContent());
+                                sql.append("'"+nNode.getTextContent()+"'");
                                 break;
                             case "CONDITION":
                                 sql.append(" WHERE " + nNode.getTextContent() + ";");
