@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><SELECT>
+    <CHAMPS>
+        <CHAMP>nomserv</CHAMP>
+        <CHAMP>grade</CHAMP>
+    </CHAMPS>
+    <TABLES>
+        <TABLE>serveur</TABLE>
+    </TABLES>
+    <CONDITION>numserv = 4</CONDITION>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>DSdlzpB3tkDVW5fq3mCs7Psdq2RjLB51kasv+F3qk+I=</DigestValue></Reference></SignedInfo><SignatureValue>JfXcM68NLuAHT+fEtMdOGyStL2hZtz16w84vmXAFNfijXsKtDJG6ZPT17sAvNtJa+vaRRTnKqds=</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>j3k12bmq6b+r7Yh6z0lRtvMuxZ47rzcY6OrElh8+/TYG50NRqcQYMzm4CefCrhxTm6dHW4XQEa24&#13;
+tHmHdUmEaVysDo8UszYIKKIv+icRCj1iqZNFNAmg/mlsRlj4S90ggZw3CaAQV7GVrc0AIz26VIS2&#13;
+KR+dZI74g0SGd5ec7AS0NKasLnXpmF3iPbApL8ERjJ/6nYGB5zONt5K3MNe540lZL2gJmHIVORXq&#13;
+PWuLRlPGM0WPgDsypMLg8nKQJW5OP4o7CDihxFDk4YwaKaN9316hQ95LZv8EkD7VzxYj4VjUh8YI&#13;
+6X8hHNgdyiPLbjgHZfgi40K+SEwFdjk5YBzWZw==</P><Q>uvaWpoV499/e5/pnyXfHhe8ysjO65YDAvNVpXQ==</Q><G>FqZcWCBIUHBOdQKjl1cEDTTaOjR4wVTU5KXALSQu4E+W5h5L0JBKvayPN+6x4J8xgtI8kEPLZC+I&#13;
+AEFg7fnKCbMgdqecMqYn8kc+kYebosTnRL0ggVRMtVuALDaNH6g+1InpTg+gaI4yQopceMR4xo0F&#13;
+J7ccmjq7CwvhLERoljnn08502xAaZaorh/ZMaCbbPscvS1WZg0u07bAvfJDppJbTpV1TW+v8RdT2&#13;
+GfY/Pe27hzklwvIk4HcxKW2oh+weR0j4fvtf3rdUhDFrIjLe5VPdrwIRKw0fAtowlzIk/ieu2oud&#13;
+Syki2bqL457Z4QOmPFKBC8aIt+LtQxbh7xfb3g==</G><Y>Yb0nosiFJnnkgc7byNKOXhZXADbMWYYBW+wddzNiO941Y7HGq4uf08twUk/lFDMqbEQNAZha9AjQ&#13;
+/4DlXcCft5L8IUb+5EB384m/bY2rXBbOsGg936Tcs7EhwhjfblAxxmXsmV0l/MEEjrnJAY6Ah4IW&#13;
+f2xjC38F4WqgOqr2DeFey5dKBll/tei1a3OGZ8UG3h96yO5kuYWZ9vZZkBHeuqEucPaCPOGJRYF0&#13;
+rWupIKFIRuefpf+Hd8OFkJ47FyU3MiIqjGgoDo0CzqV+1WNsxlQcKggi7HxHyaiAizWGJUFtIWJp&#13;
+je5zHKWQWJDhyq0iCVW7eOutHMd7jJxiFfa0gg==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></SELECT>
