@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><DELETE>
+    <TABLE>plat</TABLE>
+    <CONDITION>numplat = 2</CONDITION>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>fmfzdErZWystjet9XHOqqd+er0UcAZXVK84oXsZtQ1A=</DigestValue></Reference></SignedInfo><SignatureValue>cthh/lgi/FBKmrXcfgMPWqUvSEqq3BSdKELR0lu8FAx6xgWCXs04nqFbPfqdfEREbaMtF8mqR0Y=</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>j3k12bmq6b+r7Yh6z0lRtvMuxZ47rzcY6OrElh8+/TYG50NRqcQYMzm4CefCrhxTm6dHW4XQEa24&#13;
+tHmHdUmEaVysDo8UszYIKKIv+icRCj1iqZNFNAmg/mlsRlj4S90ggZw3CaAQV7GVrc0AIz26VIS2&#13;
+KR+dZI74g0SGd5ec7AS0NKasLnXpmF3iPbApL8ERjJ/6nYGB5zONt5K3MNe540lZL2gJmHIVORXq&#13;
+PWuLRlPGM0WPgDsypMLg8nKQJW5OP4o7CDihxFDk4YwaKaN9316hQ95LZv8EkD7VzxYj4VjUh8YI&#13;
+6X8hHNgdyiPLbjgHZfgi40K+SEwFdjk5YBzWZw==</P><Q>uvaWpoV499/e5/pnyXfHhe8ysjO65YDAvNVpXQ==</Q><G>FqZcWCBIUHBOdQKjl1cEDTTaOjR4wVTU5KXALSQu4E+W5h5L0JBKvayPN+6x4J8xgtI8kEPLZC+I&#13;
+AEFg7fnKCbMgdqecMqYn8kc+kYebosTnRL0ggVRMtVuALDaNH6g+1InpTg+gaI4yQopceMR4xo0F&#13;
+J7ccmjq7CwvhLERoljnn08502xAaZaorh/ZMaCbbPscvS1WZg0u07bAvfJDppJbTpV1TW+v8RdT2&#13;
+GfY/Pe27hzklwvIk4HcxKW2oh+weR0j4fvtf3rdUhDFrIjLe5VPdrwIRKw0fAtowlzIk/ieu2oud&#13;
+Syki2bqL457Z4QOmPFKBC8aIt+LtQxbh7xfb3g==</G><Y>PiwencqrZzoFPz9fZleS6sqm9wAVcJgf5ihjPr0QiRoUMXFYjKXcXDnhw15/FtI6jIjXv2bkSmRo&#13;
+gePzZVY5LLEVt6Xkxp+M0t7iJ0X6y8zoF7u13IxgL8vgSKmu18tW9VKupobCMRVOrV3M66h7OFIz&#13;
+VEhGZWvupqRyAI1f+kxghDQNL9AeUY2eyV7enG2UAcc3CXTMGyd2qERTKuz8IoxeUokU4gmo2p+q&#13;
+P2eq78KmYi4nJ8+Z3BMkpPFEX8VQWqTFQev6ZUSHVPBJbDAkMXt+rB0tHrqkTKhMYZZIzB1YaaLI&#13;
+fMn0YVH3eerN54vUwEOccF1Nvf7dMkNogdN3tw==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></DELETE>
