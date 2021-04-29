@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><UPDATE>
+<TABLE>tabl</TABLE>
+    <CHAMP>nbplace</CHAMP>
+    <VALUE>11</VALUE>
+    <CONDITION>numtab = 1</CONDITION>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>VteZXLecJtdVpW8Moafx0xFxWNP9mFsokUPSyhl9k7w=</DigestValue></Reference></SignedInfo><SignatureValue>EsM23Frl21Y2ITehFS+H/G+TrHZBYEh3uLNbpYZcBVo9gyO+RneZLnOItHAhJgg/A3zNm5gI1bA=</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>j3k12bmq6b+r7Yh6z0lRtvMuxZ47rzcY6OrElh8+/TYG50NRqcQYMzm4CefCrhxTm6dHW4XQEa24&#13;
+tHmHdUmEaVysDo8UszYIKKIv+icRCj1iqZNFNAmg/mlsRlj4S90ggZw3CaAQV7GVrc0AIz26VIS2&#13;
+KR+dZI74g0SGd5ec7AS0NKasLnXpmF3iPbApL8ERjJ/6nYGB5zONt5K3MNe540lZL2gJmHIVORXq&#13;
+PWuLRlPGM0WPgDsypMLg8nKQJW5OP4o7CDihxFDk4YwaKaN9316hQ95LZv8EkD7VzxYj4VjUh8YI&#13;
+6X8hHNgdyiPLbjgHZfgi40K+SEwFdjk5YBzWZw==</P><Q>uvaWpoV499/e5/pnyXfHhe8ysjO65YDAvNVpXQ==</Q><G>FqZcWCBIUHBOdQKjl1cEDTTaOjR4wVTU5KXALSQu4E+W5h5L0JBKvayPN+6x4J8xgtI8kEPLZC+I&#13;
+AEFg7fnKCbMgdqecMqYn8kc+kYebosTnRL0ggVRMtVuALDaNH6g+1InpTg+gaI4yQopceMR4xo0F&#13;
+J7ccmjq7CwvhLERoljnn08502xAaZaorh/ZMaCbbPscvS1WZg0u07bAvfJDppJbTpV1TW+v8RdT2&#13;
+GfY/Pe27hzklwvIk4HcxKW2oh+weR0j4fvtf3rdUhDFrIjLe5VPdrwIRKw0fAtowlzIk/ieu2oud&#13;
+Syki2bqL457Z4QOmPFKBC8aIt+LtQxbh7xfb3g==</G><Y>hKRHRDn4P3lz6A3oW+H3vPMotjPVMgTryLfyg87k4qtT4ieCUfSilomH3UthUszoHn8w/Pn9Dpjc&#13;
+F4Pjk27BbZEwbzDaU1I7UkFBw56ht3BJfoeINFi/fOiBri92gFX1pCPacxakzlOqfKOFmqj1ablT&#13;
+TCehKnLUCsaOGLCek4NA6uMXqbrxOhasfc/uxMC7ErDDbCwpvtvwekpaJHtKWSvnJGLXoFiOQrP/&#13;
+I8u6WKEjHn2w4298oUjd2h3Qy53itXJQX7me0rOYtrs3NcIQOUhUO3CdDyTVh+hPrdcODbeGlDun&#13;
+dHQrcTH5G528vIBqdvB7OXTIzx9a5mEtsvZN/Q==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></UPDATE>
