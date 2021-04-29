@@ -28,7 +28,7 @@ public class Inserer {
 
             Document doc1 = dBuilder.parse(new File(fileName));
 
-            // doit contenir la balise insert elemt node
+            // doit contenir la balise insert
             Node select = doc1.getDocumentElement();
 
             // si la balise racine est bien une balise insert alors on peut effectuer l'insertion
@@ -55,12 +55,15 @@ public class Inserer {
                                 // on recupere le nom de la table
                                 part1.append("INSERT INTO "+ nNode.getTextContent()+" VALUES(");
                                 break;
+
                             // si on a une balise <VALUES>
                             case "VALUES":
                                 // on recupere les fils de la balise <VALUES>
                                 sousNoeud = nNode.getChildNodes();
                                 String virgule = "";
                                 part2 = new StringBuilder();
+
+                                // parcours de toutes les <VALUE>
                                 for (j = 0; j < sousNoeud.getLength(); j++) {
                                     // recuperation de la balise <VALUE>
                                     Node nNode2 = sousNoeud.item(j);
@@ -79,6 +82,7 @@ public class Inserer {
                                 // on execute la requete
                                 Statement statement = connection.createStatement();
                                 int rows = statement.executeUpdate(sql.toString());
+
                                 // on remets a 0 le string builder pour les cas ou il y a plusieurs insert dans ls xml
                                 sql = new StringBuilder();
                                 break;
@@ -96,8 +100,5 @@ public class Inserer {
         else{
             System.out.println("The signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");
         }
-
-
     }
-
 }

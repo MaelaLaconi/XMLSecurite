@@ -27,13 +27,14 @@ public class Rechercher {
         // liste qui contiendra la valeur de toutes les balises table
         List<String> listTable = new ArrayList<>();
 
-        // contient notre condition (pas besoin de list car une seule balise condition par xml)
+        // contient notre condition (pas besoin de list car une seule balise condition par xml select)
         String cond ="";
 
 
         NodeList sousNoeud ;
 
         Signature signature = new Signature();
+
         // true si la signature est validé
         boolean coreValidity = signature.validateSignature(fileName);
 
@@ -66,6 +67,7 @@ public class Rechercher {
                                 // on recupere les fils de la balise <CHAMPS>
                                 sousNoeud = nNode.getChildNodes();
 
+                                // parcours des balises <CHAMP>
                                 for (j = 0; j < sousNoeud.getLength(); j++) {
                                     // recuperation de la balise <CHAMP>
                                     Node nNode2 = sousNoeud.item(j);
@@ -79,7 +81,7 @@ public class Rechercher {
                             // si on a une balise <TABLES>
                             case "TABLES":
                                 sousNoeud = nNode.getChildNodes();
-
+                                // on parcours les balises <TABLE>
                                 for (j = 0; j < sousNoeud.getLength(); j++) {
                                     // recuperation de la balise <TABLE>
                                     Node nNode2 = sousNoeud.item(j);
@@ -107,6 +109,7 @@ public class Rechercher {
                 String prefix = "";
 
                 // on parcours les balises champ qu'on ajoute dans notre requete
+                // les champs sont espacés par une virgule
                 for (String c : listChamp) {
                     sql.append(prefix);
                     prefix = ", ";
@@ -117,6 +120,7 @@ public class Rechercher {
                 prefix = "";
 
                 // on parcours les balises table que l'on ajoute dans notre requete
+                // les tables sont espacées par une virgule
                 for (String t : listTable) {
                     sql.append(prefix);
                     prefix = ", ";
@@ -162,7 +166,7 @@ public class Rechercher {
                 fileWriter.write(sb.toString());
                 fileWriter.close();
 
-                // le xml signé sera dans src/ressources/SignedRecherche.xml
+                // le xml signé sera dans src/ressources/RechercheRes.xml
                 signature.createSignature("RechercheRes.xml");
 
                 System.out.println("Le resultat de la recherche se trouve dans src/ressources/RechercheRes.xml\n\n");
@@ -175,7 +179,5 @@ public class Rechercher {
         else{
             System.out.println("The signature doesn't validates according to the core validation rules in the W3C XML Signature Recommendation");
         }
-
-
     }
 }

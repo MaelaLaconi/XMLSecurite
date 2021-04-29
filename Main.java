@@ -70,9 +70,6 @@ public class Main {
             }
         }
 
-        Signature signature = new Signature();
-        signature.createSignature("MajPlat.xml");
-
         connection.close();
     }
 }

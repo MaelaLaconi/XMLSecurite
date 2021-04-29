@@ -2,11 +2,14 @@ import javax.xml.crypto.*;
 import javax.xml.crypto.dsig.SignatureMethod;
 import javax.xml.crypto.dsig.keyinfo.KeyInfo;
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
-import java.security.Key;
 import java.security.KeyException;
 import java.security.PublicKey;
 import java.util.List;
 
+/**
+ * The KeyValueKeySelector implementation tries to find an appropriate validation key using the data contained in KeyValue elements
+ * of the KeyInfo element of an XMLSignature.
+ */
 public class KeyValueKeySelector extends KeySelector {
 
     public KeySelectorResult select(KeyInfo keyInfo,
@@ -52,13 +55,5 @@ public class KeyValueKeySelector extends KeySelector {
         }
     }
 
-    // ???????????
-    private static class SimpleKeySelectorResult implements KeySelectorResult {
-        private PublicKey pk;
-        SimpleKeySelectorResult(PublicKey pk) {
-            this.pk = pk;
-        }
 
-        public Key getKey() { return pk; }
-    }
 }

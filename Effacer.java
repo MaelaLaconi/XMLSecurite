@@ -16,6 +16,7 @@ public class Effacer {
     public void delete(String fileName) throws Exception {
 
         Signature signature = new Signature();
+
         // true si la signature est valide
         boolean coreValidity = signature.validateSignature(fileName);
 
@@ -26,7 +27,7 @@ public class Effacer {
 
             Document doc1 = dBuilder.parse(new File(fileName));
 
-            // doit contenir la balise delete elemt node
+            // doit contenir la balise delete
             Node select = doc1.getDocumentElement();
 
             // si la balise racine est bien une balise delete alors on peut effectuer la suppression
@@ -51,6 +52,7 @@ public class Effacer {
                                 // on récupere le nom de la table sur laquelle faire la requete
                                 sql.append("DELETE FROM " + nNode.getTextContent() + " WHERE ");
                                 break;
+
                             // si la balise est <CONDITION>
                             case "CONDITION":
                                 // on recupere la condition a appliquer

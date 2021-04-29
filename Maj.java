@@ -17,6 +17,7 @@ public class Maj {
     public void update(String fileName) throws Exception {
 
         Signature signature = new Signature();
+
         // true si la signature est valide
         boolean coreValidity = signature.validateSignature(fileName);
 
@@ -27,7 +28,7 @@ public class Maj {
 
             Document doc1 = dBuilder.parse(new File(fileName));
 
-            // doit contenir la balise update elemt node
+            // doit contenir la balise update
             Node select = doc1.getDocumentElement();
 
             // si la balise racine est bien une balise update alors on peut effectuer la mise à jour

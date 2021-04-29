@@ -40,6 +40,8 @@ public class Signature {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         DocumentBuilder builder = dbf.newDocumentBuilder();
+
+        // tous les documents xml se trouvent dans le fichier ressources
         Document doc = builder.parse(new FileInputStream("src/ressources/"+fileName));
 
         //Creating a Signing Context
@@ -70,7 +72,7 @@ public class Signature {
         // Generating the XML Signature
         signature.sign(dsc);
 
-        // Printing or Displaying the Resulting Document
+        // Displaying the Resulting Document
 
         OutputStream os = new FileOutputStream("src/ressources/"+fileName);
 
@@ -80,8 +82,13 @@ public class Signature {
 
     }
 
+    /**
+     *
+     * @param fileName le xml qio doit etre signé
+     * @return true si ka signature est validée, false sinon
+     * @throws Exception
+     */
     public boolean validateSignature(String fileName) throws Exception {
-        // vérifiaction de la signature
 
         // Instantiating the Document that Contains the Signature
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -89,6 +96,7 @@ public class Signature {
         dbf.setNamespaceAware(true);
 
         DocumentBuilder builder = dbf.newDocumentBuilder();
+
         // contient le xml qui doit etre signé
         Document doc = builder.parse(new FileInputStream(fileName));
 
@@ -99,7 +107,6 @@ public class Signature {
             throw new Exception("Cannot find Signature element");
         }
 
-        // créer la classe keyValueSelector
         // Creating a Validation Context
         DOMValidateContext valContext = new DOMValidateContext(new KeyValueKeySelector(), nl.item(0));
 
