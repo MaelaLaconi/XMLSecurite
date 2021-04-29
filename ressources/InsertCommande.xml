@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><INSERT>
+    <TABLE>commande</TABLE>
+    <VALUES>
+        <VALUE>1</VALUE>
+        <VALUE>10</VALUE>
+        <VALUE>2021-12-01</VALUE>
+        <VALUE>93</VALUE>
+        <VALUE>2021-12-01</VALUE>
+        <VALUE>carte</VALUE>
+        <VALUE>28.5</VALUE>
+    </VALUES>
+
+    <VALUES>
+        <VALUE>2</VALUE>
+        <VALUE>11</VALUE>
+        <VALUE>2021-12-02</VALUE>
+        <VALUE>4</VALUE>
+        <VALUE>2021-12-02</VALUE>
+        <VALUE>carte</VALUE>
+        <VALUE>10.99</VALUE>
+    </VALUES>
+
+    <VALUES>
+        <VALUE>3</VALUE>
+        <VALUE>12</VALUE>
+        <VALUE>2021-12-03</VALUE>
+        <VALUE>25</VALUE>
+        <VALUE>2021-12-10</VALUE>
+        <VALUE>monnaie</VALUE>
+        <VALUE>101.75</VALUE>
+    </VALUES>
+
+    <VALUES>
+        <VALUE>4</VALUE>
+        <VALUE>13</VALUE>
+        <VALUE>2021-12-04</VALUE>
+        <VALUE>11</VALUE>
+        <VALUE>2021-12-5</VALUE>
+        <VALUE>monnaie</VALUE>
+        <VALUE>89.99</VALUE>
+    </VALUES>
+
+    <VALUES>
+        <VALUE>5</VALUE>
+        <VALUE>14</VALUE>
+        <VALUE>2021-12-05</VALUE>
+        <VALUE>2</VALUE>
+        <VALUE>2021-12-07</VALUE>
+        <VALUE>cheque</VALUE>
+        <VALUE>8.56</VALUE>
+    </VALUES>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>c1/lH7gQ6IqaibH1JA7HUbPYHv2eE243bfjY0Ee0w/s=</DigestValue></Reference></SignedInfo><SignatureValue>FQVOyOSnAAncqLOhu/+o9xc4pM6OdQiKargqP5s5TytgHy/PqZQbvAdWROfBbfhE1AIdmLF5/fQ=</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>j3k12bmq6b+r7Yh6z0lRtvMuxZ47rzcY6OrElh8+/TYG50NRqcQYMzm4CefCrhxTm6dHW4XQEa24&#13;
+tHmHdUmEaVysDo8UszYIKKIv+icRCj1iqZNFNAmg/mlsRlj4S90ggZw3CaAQV7GVrc0AIz26VIS2&#13;
+KR+dZI74g0SGd5ec7AS0NKasLnXpmF3iPbApL8ERjJ/6nYGB5zONt5K3MNe540lZL2gJmHIVORXq&#13;
+PWuLRlPGM0WPgDsypMLg8nKQJW5OP4o7CDihxFDk4YwaKaN9316hQ95LZv8EkD7VzxYj4VjUh8YI&#13;
+6X8hHNgdyiPLbjgHZfgi40K+SEwFdjk5YBzWZw==</P><Q>uvaWpoV499/e5/pnyXfHhe8ysjO65YDAvNVpXQ==</Q><G>FqZcWCBIUHBOdQKjl1cEDTTaOjR4wVTU5KXALSQu4E+W5h5L0JBKvayPN+6x4J8xgtI8kEPLZC+I&#13;
+AEFg7fnKCbMgdqecMqYn8kc+kYebosTnRL0ggVRMtVuALDaNH6g+1InpTg+gaI4yQopceMR4xo0F&#13;
+J7ccmjq7CwvhLERoljnn08502xAaZaorh/ZMaCbbPscvS1WZg0u07bAvfJDppJbTpV1TW+v8RdT2&#13;
+GfY/Pe27hzklwvIk4HcxKW2oh+weR0j4fvtf3rdUhDFrIjLe5VPdrwIRKw0fAtowlzIk/ieu2oud&#13;
+Syki2bqL457Z4QOmPFKBC8aIt+LtQxbh7xfb3g==</G><Y>FmklZI1sc6rFSdX8A34mMDDyaUANlhpmw4Usowmv5dIhZxBzdVuRzDI130L7AgYyXrQOBjUeNBto&#13;
+Rjp0kP+XmzkurRpA4B6wgRDIopcRsKlyhsyTUPs6Ud+wBnZ/bsMlWi5MvlQd/S+KFMQOGC5C67or&#13;
+nnW24BDOYKCcLYEcNInmctI74d1oky8T0LkRBAovDZKutnk4UczGx0zJJ3Y0Y0ScntnlJc1BcWSG&#13;
+BxnSr7v9lvngpAwPvuHnSlgUv3aBegQh8BwOj1kquWnUVJbgMKwn4QalGtOj6vN9TilOt9ujdQrr&#13;
+MTFUh3qKB75Y0BrtkHYfwjEmo3uGOnpOM31a3A==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></INSERT>

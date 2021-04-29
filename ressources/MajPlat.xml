@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><UPDATE>
+    <TABLE>plat</TABLE>
+    <CHAMP>prixUnit</CHAMP>
+    <VALUE>50.8</VALUE>
+    <CONDITION>libelle = 'libelleUn'</CONDITION>
+   <Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>GDCkXHQ4kh08uuFYBN4W5gvgAjisQ+2elj8foE+4Ba8=</DigestValue></Reference></SignedInfo><SignatureValue>pLCGGYrdaz3aBGKYAT647bu6RVqbAXg0vjJYazJfMxdoJdvqQ5+Y2RZrj8bofXG1EJurFKi3Jl8=</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>j3k12bmq6b+r7Yh6z0lRtvMuxZ47rzcY6OrElh8+/TYG50NRqcQYMzm4CefCrhxTm6dHW4XQEa24&#13;
+tHmHdUmEaVysDo8UszYIKKIv+icRCj1iqZNFNAmg/mlsRlj4S90ggZw3CaAQV7GVrc0AIz26VIS2&#13;
+KR+dZI74g0SGd5ec7AS0NKasLnXpmF3iPbApL8ERjJ/6nYGB5zONt5K3MNe540lZL2gJmHIVORXq&#13;
+PWuLRlPGM0WPgDsypMLg8nKQJW5OP4o7CDihxFDk4YwaKaN9316hQ95LZv8EkD7VzxYj4VjUh8YI&#13;
+6X8hHNgdyiPLbjgHZfgi40K+SEwFdjk5YBzWZw==</P><Q>uvaWpoV499/e5/pnyXfHhe8ysjO65YDAvNVpXQ==</Q><G>FqZcWCBIUHBOdQKjl1cEDTTaOjR4wVTU5KXALSQu4E+W5h5L0JBKvayPN+6x4J8xgtI8kEPLZC+I&#13;
+AEFg7fnKCbMgdqecMqYn8kc+kYebosTnRL0ggVRMtVuALDaNH6g+1InpTg+gaI4yQopceMR4xo0F&#13;
+J7ccmjq7CwvhLERoljnn08502xAaZaorh/ZMaCbbPscvS1WZg0u07bAvfJDppJbTpV1TW+v8RdT2&#13;
+GfY/Pe27hzklwvIk4HcxKW2oh+weR0j4fvtf3rdUhDFrIjLe5VPdrwIRKw0fAtowlzIk/ieu2oud&#13;
+Syki2bqL457Z4QOmPFKBC8aIt+LtQxbh7xfb3g==</G><Y>DmFZXUu8t5U/0PUZ0ofCqeC/MwD7hDaC0eAQ1V1tcYtXB1OrY5hGaEw9VRMgM2WGe7TSCo2PX5Ku&#13;
+vY3E8uI4ETsIaJNvohmapX5oG5+LZN2CMYsMaz/yIpGepbZVphlVDO8FADbxO56uNrhWxZ2p1xYQ&#13;
+NbegQJgMTzBpRgMsFI/gH2OCBU8gGiLC6s9+ovbTjj1je+TY5jXclLYJb2T6olbDDRzFJTf0+Yxp&#13;
+dFL+lO2QMpBzo3+EyDfC/23RgGKY7gIZ7lLk/YsyrPAiQUwuptL/DzeP8HoOksGsHD/PDrMcPrfI&#13;
+12W2lWRcJC0hHo3yLX6RBVJ1I7fekd8AS5m5XA==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></UPDATE>

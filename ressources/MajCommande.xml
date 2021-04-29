@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><UPDATE>
+    <TABLE>commande</TABLE>
+    <CHAMP>modpaie</CHAMP>
+    <VALUE>monnaie</VALUE>
+    <CONDITION>numcom = 1</CONDITION>
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>VzMT/6o/R6yRR/IW0G8vcF1iZXB7pB+oJCnYYX1Cbs4=</DigestValue></Reference></SignedInfo><SignatureValue>SNEyEhDcvwyMn7RaQfSvokS/W80W59Gwj8Ecn0V24jW5U5o9FbpDhlc2rxJIRiRcWn4Meb1HjZg=</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>j3k12bmq6b+r7Yh6z0lRtvMuxZ47rzcY6OrElh8+/TYG50NRqcQYMzm4CefCrhxTm6dHW4XQEa24&#13;
+tHmHdUmEaVysDo8UszYIKKIv+icRCj1iqZNFNAmg/mlsRlj4S90ggZw3CaAQV7GVrc0AIz26VIS2&#13;
+KR+dZI74g0SGd5ec7AS0NKasLnXpmF3iPbApL8ERjJ/6nYGB5zONt5K3MNe540lZL2gJmHIVORXq&#13;
+PWuLRlPGM0WPgDsypMLg8nKQJW5OP4o7CDihxFDk4YwaKaN9316hQ95LZv8EkD7VzxYj4VjUh8YI&#13;
+6X8hHNgdyiPLbjgHZfgi40K+SEwFdjk5YBzWZw==</P><Q>uvaWpoV499/e5/pnyXfHhe8ysjO65YDAvNVpXQ==</Q><G>FqZcWCBIUHBOdQKjl1cEDTTaOjR4wVTU5KXALSQu4E+W5h5L0JBKvayPN+6x4J8xgtI8kEPLZC+I&#13;
+AEFg7fnKCbMgdqecMqYn8kc+kYebosTnRL0ggVRMtVuALDaNH6g+1InpTg+gaI4yQopceMR4xo0F&#13;
+J7ccmjq7CwvhLERoljnn08502xAaZaorh/ZMaCbbPscvS1WZg0u07bAvfJDppJbTpV1TW+v8RdT2&#13;
+GfY/Pe27hzklwvIk4HcxKW2oh+weR0j4fvtf3rdUhDFrIjLe5VPdrwIRKw0fAtowlzIk/ieu2oud&#13;
+Syki2bqL457Z4QOmPFKBC8aIt+LtQxbh7xfb3g==</G><Y>G+rosUL3/+tweY5CdSt+jCm98knA+EQwnsZVZ2gwgL8EHrlYAoOJhgHstvmC5krqNkMLz6U3l/mp&#13;
+TWolaMY8uR7sPqA3vNYu2J++uwtMgNNvGpzuO3el9Hor9hWm4+6DAn/FscFw68b6psD4Q98iUPwy&#13;
+NHwXP4VV64OYh3DnEMVqt3v6qVFDqdzSeWubmQfj8PhMBiDlCs05EYl4fo2Rs0U4qdIcGe7zRY4J&#13;
+QodurKVlpPC8CmzrzujYpdOLkKm9nr/U1uZ41holCBII8ppaXEAUawqozjUfVN6DWpug7ent+4Cz&#13;
+gA8xIr32JlQlFAw+3Z56SKuIn77pLcx+dGqXqQ==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></UPDATE>
